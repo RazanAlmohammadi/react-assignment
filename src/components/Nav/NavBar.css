@@ -1,0 +1,16 @@
+.nav{
+background-color: rgb(206, 241, 195);
+display: flex;
+flex-direction: row;
+justify-content: space-around;
+align-items: center;
+}
+
+.navList{
+    width: 400px;
+display: flex;
+flex-direction: row;
+justify-content: space-around;
+align-items: center;
+list-style: none;
+}

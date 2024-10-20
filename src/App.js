@@ -1,5 +1,9 @@
 import logo from "./logo.svg";
 import "./App.css";
+import NavBar from "./components/Nav/NavBar";
+import Main from "./components/Main/Main";
+import Footer from "./components/Footer/Footer";
+
 
 function App() {
   const productList = [
@@ -86,8 +90,23 @@ function App() {
   ];
   return (
     <div className="App">
-      <h1>React assignment</h1>
+      <NavBar />
+      <Main />
+       <div>Products List</div>
+    {productList.map((product) => {
+      return (
+        <div key={product.id}>
+          <img src={product.image} alt={product.title} style={{ width: '100px', height: 'auto' }} />
+          <div>Product name: {product.title}</div>
+          <div>Product price: ${product.price}</div>
+          <div>Rating: {product.rating.rate} ({product.rating.count} reviews)</div>
+        </div>
+      );
+    })}
+ 
+      <Footer />
     </div>
+
   );
 }
 
