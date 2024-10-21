@@ -1,0 +1,19 @@
+.home {
+    background-image: url("../Images/background.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 650px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.btn {
+    background-color: #eb5e28;
+    border: 2px solid #edf6f9;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+}

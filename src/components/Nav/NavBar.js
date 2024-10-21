@@ -1,14 +1,17 @@
 import React from 'react'
 import "./NavBar.css"
+import logo from "../Images/logo.png";
 export default function NavBar() {
   return (
-    <div className="nav">
-      
+    <nav>
+    
+      <img src={logo} alt="logo" />
         <ul className="navList">
             <li>Home</li>
             <li>Product</li>
             <li>About</li>
         </ul>
-    </div>
+  
+    </nav>
   )
 }
