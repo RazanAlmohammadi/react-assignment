@@ -11,7 +11,7 @@ import notfound from "./components/Images/not_found.jpg";
 
 function App() {
 
-  const url = "https://fakestoreapi.com/products";
+  const url = "https://run.mocky.io/v3/745bbdc2-54e2-4e02-9dfc-c9afdbfaad86";
 
   const [productList, setProductList] = useState([]);
   const [loading, setLoading] = useState(true);
