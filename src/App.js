@@ -1,12 +1,15 @@
 import "./App.css";
-import NavBar from "./components/Nav/NavBar";
-import Home from "./components/Home/Home";
-import Footer from "./components/Footer/Footer";
-import Products from "./components/Products/Products";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Children } from "react";
 import axios from "axios";
 import CircularProgress from "@mui/material/CircularProgress";
-import notfound from "./components/Images/not_found.jpg";
+import notfound from "./Images/not_found.jpg";
+import HomePage from "./Pages/HomePage.js";
+import AboutPage from "./Pages/AboutPage.js";
+import ProductPage from "./Pages/ProductPage.js";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import NotFoundPage from "./Pages/NotFoundPage.js";
+import Layout from "./Laytout/Layout.js";
+import ProductDetail from "./Pages/ProductDetailPage.js";
 
 
 function App() {
@@ -50,15 +53,43 @@ function App() {
     );
   }
 
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Layout />,
+      children: [
+        {
+          index: true,
+          element: <HomePage />,
+        },
+        {
+          path: "/Home",
+          element: <HomePage />,
+        },
+        {
+          path: "/About-us",
+          element: <AboutPage />,
+        },
+        {
+          path: "/Products",
+          element: <ProductPage products={productList} />, 
+        },
+        {
+          path: "/Products/:productId",
+element:<ProductDetail/>
+        },
+        {
+          path: "*",
+          element: <NotFoundPage />,
+        },
+      ],
+    },
+  ]);
+
   return (
     <div className="App">
-      <NavBar />
-      <Home />
-      <Products productsList={productList}/>
-      <Footer />
+      <RouterProvider router={router} />
     </div>
-
   );
 }
-
 export default App;
