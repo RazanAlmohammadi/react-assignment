@@ -1,5 +1,12 @@
-import React from 'react'
-import Products from"../components/Products/Products"
-export default function ProductPage({ products }) {
-  return <div><Products products={products} /></div>;
+import React from 'react';
+import Products from "../components/Products/Products";
+import Form from "../components/Form/Form";
+
+export default function ProductPage({ products, setUserInput, userInput }) {
+  return (
+    <div>
+      <Form setUserInput={setUserInput} />
+      <Products productList={products} userInput={userInput} />
+    </div>
+  );
 }

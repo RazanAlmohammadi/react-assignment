@@ -1,5 +1,5 @@
 import "./App.css";
-import { useState, useEffect, Children } from "react";
+import { useState, useEffect, children } from "react";
 import axios from "axios";
 import CircularProgress from "@mui/material/CircularProgress";
 import notfound from "./Images/not_found.jpg";
@@ -19,6 +19,7 @@ function App() {
   const [productList, setProductList] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [userInput, setUserInput] = useState("");
 
   function getData() {
     axios
@@ -67,12 +68,15 @@ function App() {
           element: <HomePage />,
         },
         {
-          path: "/About-us",
+          path: "/About",
           element: <AboutPage />,
         },
         {
           path: "/Products",
-          element: <ProductPage products={productList} />, 
+          element: <ProductPage 
+            products={productList} 
+            setUserInput={setUserInput}
+            userInput={userInput} />, 
         },
         {
           path: "/Products/:productId",

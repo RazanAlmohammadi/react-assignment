@@ -8,6 +8,8 @@
     justify-content: center;
     align-items: center;
     color: white;
+    position: relative;
+    padding: 20px;
 }
 
 .btn {
@@ -16,4 +18,49 @@
     padding: 10px 20px;
     font-size: 16px;
     border-radius: 5px;
+    margin-top: 20px;
+}
+
+.promo-banner {
+    background-color: #fff48d;
+    padding: 15px;
+    border-radius: 5px;
+    margin: 40px 0;
+    text-align: center;
+}
+
+.user-reviews {
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.user-reviews h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.review {
+    margin-bottom: 15px;
+    border-left: 4px solid #4caf50;
+    padding-left: 15px;
+    width: 100%;
+}
+
+.review h4 {
+    font-weight: bold;
+    color: #333;
+}
+
+.review p {
+    font-style: italic;
+    color: #555;
+    margin: 5px 0;
 }
