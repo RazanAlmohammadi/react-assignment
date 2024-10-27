@@ -5,18 +5,28 @@ import { Link } from 'react-router-dom';
 import HomeIcon from '@mui/icons-material/Home';
 import CheckroomIcon from '@mui/icons-material/Checkroom';
 import InfoIcon from '@mui/icons-material/Info';
-export default function NavBar() {
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
+import Avatar from "@mui/material/Avatar";
+import user from "../../Images/user-icon.png";
+import { Badge } from '@mui/material';
+export default function NavBar(prop) {
+  const { wishList } = prop;
+  const arrayLength = wishList.length;
   return (
     <nav>
-    
       <img src={logo} alt="logo" className="logo" />
-        <ul className="navList">
+      <ul className="navList">
         <Link to="/Home"> <HomeIcon sx={{ color: "black" }} /></Link>
         <Link to="Products"> <CheckroomIcon sx={{ color: "black" }} /></Link>
-           
-        <Link to="About"><InfoIcon  sx={{ color: "black" }} /></Link>
-        </ul>
-  
+
+        <Link to="About"><InfoIcon sx={{ color: "black" }} /></Link>
+        <Badge badgeContent={arrayLength} color="primary">
+          <Link to="/wishList"><FavoriteIcon sx={{ color: "black" }} /></Link></Badge>
+        <Link to="/Cart"><ShoppingBasketIcon sx={{ color: "black" }} /></Link>
+        <Link to="/login"> <Avatar alt="user icon" src={user} /></Link>
+      </ul>
+
     </nav>
   )
 }

@@ -1,4 +1,4 @@
-import "./App.css";
+
 import { useState, useEffect, children } from "react";
 import axios from "axios";
 import CircularProgress from "@mui/material/CircularProgress";
@@ -10,16 +10,19 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import NotFoundPage from "./Pages/NotFoundPage.js";
 import Layout from "./Laytout/Layout.js";
 import ProductDetail from "./Pages/ProductDetailPage.js";
+import WishListPage from "./Pages/WishListPage.js";
+import CartPage from "./Pages/CartPage.js";
 
 
 function App() {
 
   const url = "https://run.mocky.io/v3/745bbdc2-54e2-4e02-9dfc-c9afdbfaad86";
-
+  const [wishList, setWishList] = useState([]);
   const [productList, setProductList] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [userInput, setUserInput] = useState("");
+  
 
   function getData() {
     axios
@@ -50,6 +53,7 @@ function App() {
     return (
       <div>
         <img className="error" src={notfound} alt="404" />
+        <p>{error}</p>
       </div>
     );
   }
@@ -57,7 +61,7 @@ function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Layout />,
+      element: <Layout wishList={wishList} />,
       children: [
         {
           index: true,
@@ -73,19 +77,30 @@ function App() {
         },
         {
           path: "/Products",
-          element: <ProductPage 
-            products={productList} 
+          element: <ProductPage
+            products={productList}
             setUserInput={setUserInput}
-            userInput={userInput} />, 
+            userInput={userInput}
+            wishList={wishList}      
+            setWishList={setWishList} />,
         },
         {
           path: "/Products/:productId",
-element:<ProductDetail/>
+          element: <ProductDetail />
+        },
+        {
+          path: "/WishList",
+          element: <WishListPage wishList={wishList} />
+        },
+        {
+          path: "/cart",
+          element: <CartPage />
         },
         {
           path: "*",
           element: <NotFoundPage />,
         },
+        
       ],
     },
   ]);
